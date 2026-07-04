@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper Dynamics - Advanced Systems Control</title>
+    <!-- Google Fonts: Outfit for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="app-header">
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-accent">Vesper</span>Control
+            </div>
+            <nav class="main-nav">
+                <a href="#carousel-section" class="nav-link">Visual Carousel</a>
+                <a href="#quiz-section" class="nav-link">System Quiz</a>
+                <a href="#weather-section" class="nav-link">Climate Tracker</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Grid Layout -->
+    <main class="container dashboard-container">
+        <div class="dashboard-grid">
+            
+            <!-- Section 1: Image Carousel Widget -->
+            <section class="dashboard-card carousel-card" id="carousel-section">
+                <div class="card-header">
+                    <span class="card-badge">Showcase</span>
+                    <h2>Visual Matrix</h2>
+                    <p>Interactive slider with smooth transitions and auto-rotation controls.</p>
+                </div>
+                
+                <div class="carousel-container" aria-roledescription="carousel">
+                    <!-- Carousel Slides -->
+                    <div class="carousel-slides">
+                        <div class="carousel-slide active" data-index="0">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Cyber Grid Network" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>Global Telemetry Grid</h3>
+                                <p>Deep space networking and planetary data nodes.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" data-index="1">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Microprocessor Motherboard" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>Quantum Core Processor</h3>
+                                <p>Next-generation processing architectures and mainframe grids.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" data-index="2">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Encrypted Green Binary" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>Neural Network Synthesis</h3>
+                                <p>Machine learning pathways and predictive logic routing.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" data-index="3">
+                            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity Code Lines" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>Security Mainframe protocols</h3>
+                                <p>Intrusion detection matrices and encrypted system validation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left / Right Controls -->
+                    <button class="carousel-btn prev-btn" aria-label="Previous Slide">&lsaquo;</button>
+                    <button class="carousel-btn next-btn" aria-label="Next Slide">&rsaquo;</button>
+                    
+                    <!-- Bottom Controls Bar -->
+                    <div class="carousel-controls-bar">
+                        <button id="carousel-play-pause" class="btn btn-control-play" aria-label="Pause Auto Rotation">Pause Autoplay</button>
+                        <!-- Bullet Indicators -->
+                        <div class="carousel-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                            <span class="dot" data-slide="3"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Interactive Quiz Widget -->
+            <section class="dashboard-card quiz-card" id="quiz-section">
+                <div class="card-header">
+                    <span class="card-badge">Evaluation</span>
+                    <h2>Cognitive System Quiz</h2>
+                    <p>Validate your understanding of modern digital technologies.</p>
+                </div>
+
+                <div class="quiz-container">
+                    <!-- Quiz Progress Tracker -->
+                    <div id="quiz-progress-bar-container" class="quiz-progress-container" style="display: none;">
+                        <div class="quiz-progress-header">
+                            <span id="quiz-question-counter">Question 1 of 5</span>
+                            <span id="quiz-timer">Time Left: 15s</span>
+                        </div>
+                        <div class="progress-track">
+                            <div id="quiz-progress-fill" class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Active Content Area -->
+                    <div id="quiz-content-panel">
+                        <!-- Start Screen (Default) -->
+                        <div id="quiz-start-screen" class="quiz-screen active">
+                            <div class="quiz-welcome-icon">⚡</div>
+                            <h3>Are you ready to test your knowledge?</h3>
+                            <p>This interactive quiz consists of 5 multiple-choice questions on web development, networks, and advanced tech concepts. You have a 15-second timer per question!</p>
+                            <button id="quiz-start-btn" class="btn btn-primary">Start System Quiz</button>
+                        </div>
+
+                        <!-- Question Screen (Template filled by JS) -->
+                        <div id="quiz-question-screen" class="quiz-screen">
+                            <h3 id="quiz-question-text" class="quiz-question-title">Loading Question...</h3>
+                            <div id="quiz-options-container" class="quiz-options-list">
+                                <!-- Option buttons added dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Result Screen (Template filled by JS) -->
+                        <div id="quiz-result-screen" class="quiz-screen">
+                            <div class="result-badge-glowing">
+                                <span id="quiz-result-score">80%</span>
+                            </div>
+                            <h3 id="quiz-result-title">System Assessment Completed</h3>
+                            <p id="quiz-result-description">Verification successful. You have achieved passing grade protocols.</p>
+                            <div class="quiz-stats-row">
+                                <div class="stat-box">
+                                    <span class="stat-value" id="quiz-stat-correct">4/5</span>
+                                    <span class="stat-label">Correct Answers</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-value" id="quiz-stat-points">400</span>
+                                    <span class="stat-label">Total Points</span>
+                                </div>
+                            </div>
+                            <button id="quiz-retry-btn" class="btn btn-secondary">Retake Assessment</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Weather API Widget -->
+            <section class="dashboard-card weather-card" id="weather-section">
+                <div class="card-header">
+                    <span class="card-badge">REST API Fetch</span>
+                    <h2>Global Climate Tracker</h2>
+                    <p>Live meteorological metrics fetched dynamically from Open-Meteo REST servers.</p>
+                </div>
+
+                <div class="weather-container">
+                    <!-- Dropdown Selection -->
+                    <div class="weather-selector-group">
+                        <label for="weather-city-selector">Target Coordinates:</label>
+                        <div class="custom-select-wrapper">
+                            <select id="weather-city-selector">
+                                <option value="tokyo">Tokyo, Japan (35.68° N, 139.69° E)</option>
+                                <option value="london">London, UK (51.51° N, -0.13° W)</option>
+                                <option value="newyork" selected>New York, USA (40.71° N, -74.00° W)</option>
+                                <option value="paris">Paris, France (48.85° N, 2.35° E)</option>
+                                <option value="sydney">Sydney, Australia (-33.87° N, 151.21° E)</option>
+                                <option value="cairo">Cairo, Egypt (30.04° N, 31.24° E)</option>
+                                <option value="mumbai">Mumbai, India (19.07° N, 72.87° E)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Weather Screen Content -->
+                    <div class="weather-display-panel">
+                        <!-- Loading State -->
+                        <div id="weather-loading" class="weather-loading-state">
+                            <div class="spinner"></div>
+                            <p>Querying Open-Meteo satellites...</p>
+                        </div>
+
+                        <!-- Error State -->
+                        <div id="weather-error" class="weather-error-state" style="display: none;">
+                            <span class="error-icon">⚠️</span>
+                            <h4>API Synchronization Failed</h4>
+                            <p id="weather-error-msg">Could not establish link to remote weather servers.</p>
+                            <button id="weather-retry-btn" class="btn btn-secondary btn-small">Retry Link</button>
+                        </div>
+
+                        <!-- Weather Data Screen (Filled by JS) -->
+                        <div id="weather-data-screen" class="weather-data-content" style="display: none;">
+                            <div class="weather-main-row">
+                                <div class="weather-main-icon" id="weather-visual-icon">☀️</div>
+                                <div class="weather-main-temp">
+                                    <span id="weather-temp-value">22</span><span class="temp-unit">°C</span>
+                                </div>
+                                <div class="weather-main-condition">
+                                    <h4 id="weather-city-name">New York</h4>
+                                    <p id="weather-condition-desc">Clear sky</p>
+                                </div>
+                            </div>
+
+                            <!-- Weather Stats Sub-Grid -->
+                            <div class="weather-details-grid">
+                                <div class="weather-stat-card">
+                                    <div class="weather-stat-icon">💨</div>
+                                    <div class="weather-stat-info">
+                                        <span class="weather-stat-label">Wind Speed</span>
+                                        <span class="weather-stat-value" id="weather-wind-value">12.4 km/h</span>
+                                    </div>
+                                </div>
+                                <div class="weather-stat-card">
+                                    <div class="weather-stat-icon">💧</div>
+                                    <div class="weather-stat-info">
+                                        <span class="weather-stat-label">Relative Humidity</span>
+                                        <span class="weather-stat-value" id="weather-humidity-value">55%</span>
+                                    </div>
+                                </div>
+                                <div class="weather-stat-card">
+                                    <div class="weather-stat-icon">📊</div>
+                                    <div class="weather-stat-info">
+                                        <span class="weather-stat-label">Apparent Temp</span>
+                                        <span class="weather-stat-value" id="weather-apparent-temp">24.5 °C</span>
+                                    </div>
+                                </div>
+                                <div class="weather-stat-card">
+                                    <div class="weather-stat-icon">⏰</div>
+                                    <div class="weather-stat-info">
+                                        <span class="weather-stat-label">Data Timestamp</span>
+                                        <span class="weather-stat-value" id="weather-time-value">10:00 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Vesper Dynamics. Engineered for advanced client-side interactivity.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">API Policies</a>
+                <a href="#" class="footer-link">Interface Core</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
